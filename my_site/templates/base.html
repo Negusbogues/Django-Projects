@@ -16,7 +16,7 @@
 <body>
     <style>
         body {
-            background-color: #ffd1d4;
+            background: radial-gradient(#ffb7c5, #ff82a5);
             font-family: 'Courier New', Courier, monospace;
             color: #823148;
             font-weight: bold;
@@ -29,6 +29,22 @@
             text-align: center;
             color: #823148;
             font-family: cursive;
+            animation-name: swoop;
+            animation-duration: 2s;
+        }
+        
+        .nav-item:hover {
+            font-family: cursive;
+            color: aqua;
+        }
+        
+        @keyframes swoop {
+            from {
+                color: pink;
+            }
+            to {
+                color: #823148;
+            }
         }
         
         #footer {
@@ -42,16 +58,28 @@
         .nav-item {
             color: #823148;
             text-align: center;
+            border-radius: 55px;
+        }
+        
+        .nav-item-1 {
+            color: #823148;
+            text-align: center;
+            animation-name: example2;
+            animation-duration: 1s;
+            animation-timing-function: ease-in;
         }
         
         .nav-link {
             color: #823148;
             font-size: 30px;
+            animation-name: example;
+            animation-duration: 2s;
+            animation-timing-function: ease-in;
         }
         
         .navbar-nav {
             display: flex;
-            justify-content: space-between;
+            justify-content: space-evenly;
         }
         
         .purple-color {
@@ -60,15 +88,10 @@
         }
         
         .navbar {
-            background-color: #ffb7c5;
+            background: radial-gradient(#ffb7c5, #ff82a5);
         }
         
          ::placeholder {
-            color: #823148;
-            font-family: cursive;
-        }
-        
-        input {
             color: #823148;
             font-family: cursive;
         }
@@ -80,11 +103,39 @@
             font-weight: bold;
             border-radius: 8px;
             box-shadow: 1px 2px 3px 4px #823148;
+            animation-name: example1;
+            animation-duration: .5s;
+            animation-timing-function: ease-in;
+        }
+        
+        @keyframes example1 {
+            from {
+                transform: rotateY(0deg);
+            }
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+        
+        @keyframes example2 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
         }
         
         input {
             border-radius: 10px;
             background-color: #ffe6e8;
+            color: #823148;
+            font-family: cursive;
+        }
+        
+        input:hover {
+            background-color: #ff82a5;
+            color: #ffe6e8;
         }
     </style>
     <nav class="navbar navbar-expand-lg">
@@ -113,7 +164,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="http://127.0.0.1:8000/about/">About</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item-1">
                         <a class="nav-link" href="https://www.instagram.com/creativelybeautifuldesignz/"><i class='fa fa-instagram purple-color'></i></a>
                     </li>
                 </ul>
@@ -125,7 +176,7 @@
     <footer id="footer">
         <ul class="nav justify-content-center border-bottom pb-3 mb-3">
             <li class="nav-item"><a href="http://127.0.0.1:8000/" class="nav-link" style="color: #823148;">Home</a></li>
-            <li class="nav-item"><a href="https://www.instagram.com/creativelybeautifuldesignz/" class="nav-link"><i class='fa fa-instagram purple-color'></i></a></li>
+            <li class="nav-item-1"><a href="https://www.instagram.com/creativelybeautifuldesignz/" class="nav-link"><i class='fa fa-instagram purple-color'></i></a></li>
             <li class="nav-item"><a href="http://127.0.0.1:8000/about/" class="nav-link" style="color: #823148;">About</a></li>
         </ul>
     </footer>
