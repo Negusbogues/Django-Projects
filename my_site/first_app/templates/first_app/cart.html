@@ -1,0 +1,57 @@
+{%extends 'base.html'%} {%block content%}
+<h1>Cart</h1>
+<style>
+    li {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .flex-item {
+        justify-content: space-between;
+        width: 35px;
+        background-color: #823148;
+        border-radius: 8px;
+    }
+    
+    .flex-item :active {
+        background-color: red;
+        border-radius: 50px;
+    }
+    
+    .flex-item-1 {
+        flex-direction: row;
+    }
+    
+    .flex-item-2 {
+        float: right;
+        justify-content: space-between;
+        background-color: #ffb7c5;
+        color: #823148;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 1px 2px 3px 4px #823148;
+    }
+    
+    .sub {
+        text-align: right;
+    }
+</style>
+<div>
+    <form method="post">
+        {%csrf_token%} {%for order in orders%}
+        <ul>
+            <li class="flex-item-1">{{order.Item}}, Notes: {{order.Notes}}
+                <p class="flex-item-1">
+                    <label for="Id_Number">Delete item: </label>
+                    <input onmouseover="" class="flex-item" type="submit" value={{order.Id_Number}} name="Id_Number">
+                </p>
+                <p class="flex-item-1">Quantity:{{order.Quantity}}, Price: {{order.total_cost}}
+                </p>
+            </li>
+        </ul>{%endfor%}
+        <p class="sub">
+            Sub-Total : ${{sum}}
+        </p>
+        <input type="submit" value="Checkout" name="checkout" class="flex-item-2">
+    </form>
+</div>{%endblock%}

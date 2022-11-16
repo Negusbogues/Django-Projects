@@ -1,0 +1,37 @@
+{%extends 'base.html'%} {%block content%}
+<h1>Reviews</h1>
+<style>
+    label {
+        font-size: 30px;
+    }
+</style>
+<form method="post" style="text-align: center;font-size: 30px;">
+    {%csrf_token%}
+    <div>
+        <p><label for="First_Name">First Name: </label>
+            <input type="text" name="First_Name" placeholder="Mike" required></p>
+    </div>
+    <div>
+        <p><label for="Last_Name">Last Name: </label>
+            <input type="text" name="Last_Name" placeholder="Jones"></p>
+    </div>
+    <div>
+        <p><label for="Email">Email: </label>
+            <input type="text" name="Email" placeholder="email@email.com" required></p>
+    </div>
+    <div>
+        <legend>Please select your rating:</legend>
+        <div>
+            <input type="radio" id="ratingChoice1" name="Rating" value="1" required/>
+            <label for="ratingChoice1">1</label>
+            <input type="radio" id="ratingChoice2" name="Rating" value="2" required/>
+            <label for="ratingChoice2">2</label>
+            <input type="radio" id="ratingChoice3" name="Rating" value="3" required/>
+            <label for="ratingChoice3">3</label>
+            <input type="radio" id="ratingChoice4" name="Rating" value="4" required/>
+            <label for="ratingChoice4">4</label>
+            <input type="radio" id="ratingChoice5" name="Rating" value="5" required/>
+            <label for="ratingChoice5">5</label>
+        </div>
+        <input type="submit" value="Submit" class="flex-item">
+</form>{%endblock%}

@@ -1,0 +1,72 @@
+{%extends 'base.html'%} {%block content%}
+<h1>Checkout</h1>
+<style>
+    #item {
+        flex-direction: column;
+    }
+    
+    label {
+        font-size: 30px;
+    }
+    
+    div {
+        text-align: center;
+    }
+    
+    .flex-item-1 {
+        justify-content: space-between;
+        background-color: #ffb7c5;
+        color: #823148;
+        font-weight: bold;
+        border-radius: 8px;
+        box-shadow: 1px 2px 3px 4px #823148;
+    }
+</style>
+<form method="post">
+    {%csrf_token%}
+    <div>
+        <p>
+            <label for="First_Name">First Name: </label>
+            <input type="text" name="First_Name" placeholder="Jane" required>
+        </p>
+        <p>
+            <label for="Last_Name">Last Name: </label>
+            <input type="text" name="Last_Name" placeholder="Doe">
+        </p>
+        <p>
+            <label class="item" for="Address">Address: </label>
+            <input type="text" name="Address" class="item" placeholder="123 Main st.">
+        </p>
+        <p>
+            <label class="item" for="City">City: </label>
+            <input type="text" name="City" class="item" placeholder="Miami">
+        </p>
+        <p>
+            <label class="item" for="State">State: </label>
+            <input type="text" name="State" class="item" placeholder="Florida">
+        </p>
+        <p>
+            <label for="Email">Email: </label>
+            <input type="email" name="Email" placeholder="email@email.com" required>
+        </p>
+        <p>
+            <label class="item" for="Phone">Phone: </label>
+            <input type="tel" name="Phone" class="item" placeholder="(954)-555-5555">
+        </p>
+        <p>
+            <label class="item" for="Delivery_Date">Delivery date.</label>
+        </p>
+        <p>
+            <input type="date" name="Delivery_Date" title="date">
+        </p>
+        <br>
+        <br-></br->
+        <p>
+            <label class="item" for="sum">Sub-Total: ${{sum}}</label>
+        </p>
+        <p>
+            <input type="submit" value="Review Your Order" class="flex-item-1">
+        </p>
+    </div>
+</form>
+{%endblock%}

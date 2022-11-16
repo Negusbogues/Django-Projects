@@ -1,0 +1,107 @@
+{%extends 'base.html'%} {%block content%}
+<h1>Services</h1>
+<style>
+    .flex-container {
+        display: flex;
+        flex-wrap: row;
+        flex-direction: column;
+        flex-shrink: 1;
+        padding: 5px;
+        margin: 5px;
+        border: 2px;
+        justify-content: space-between;
+        text-align: center;
+        font-size: 30px;
+    }
+    
+    p {
+        display: inline-block
+    }
+    
+    .flex-item {
+        justify-content: space-between;
+        background-color: #ffb7c5;
+        color: #921d54;
+        font-weight: bold;
+        border-radius: 8px;
+    }
+    
+    legend {
+        font-size: 50px;
+    }
+    
+    img {
+        border-style: dotted;
+        border-width: 5px;
+        border-radius: 30px;
+        border-color: #823148;
+        box-shadow: 5px 5px 5px 5px #823148;
+    }
+</style>
+<form method="post">
+    {%csrf_token%}
+    <div class="flex-container">
+        <p>
+            <legend>Cake Toppers</legend>
+            {% load static %}
+            <img src="{% static 'first_app/caketopper.jpeg' %}" alt="cake topper image" sizes="50%">
+        </p>
+        <p>
+            <label for="Price">Price: $11.95</label>
+            <input type="number" name="Price" value="11.95" hidden>
+        </p>
+        <p>
+            <label for="Quantity">Quantity: </label>
+            <input type="number" min="1" max="5" name="Quantity" placeholder="0">
+        </p>
+        <p>
+            <label for="Description">Description: </label>
+        </p>
+        <p>
+            <label for="Notes">Speacial notes: </label>
+        </p>
+        <p>
+            <input type="text" placeholder="Disney theme" name="Notes">
+            <input type="radio" name="Item" value='CAKE TOPPER' hidden checked>
+        </p>
+        <p>
+            <input class="flex-item" type="submit" value="Order">
+        </p>
+        </p>
+
+    </div>
+    <br>
+</form>
+<br>
+<form method="post">
+    {%csrf_token%}
+    <div class="flex-container">
+        <p>
+            <legend>Goodie Bags</legend>
+            {% load static %}
+            <img src="{% static 'first_app/goodiebag.jpeg' %}" alt="goodiebag image" sizes="50%">
+        </p>
+        <p>
+            <label for="Price">Price: $5.95</label>
+            <input type="number" name="Price" value="5.95" hidden>
+        </p>
+        <p>
+            <label for="Quantity">Quantity: </label>
+            <input type="number" min="1" max="35" placeholder="0" name="Quantity">
+        </p>
+        <p>
+            <label for="Description">Description: </label>
+        </p>
+        <p>
+            <label for="Notes">Speacial notes: </label>
+        </p>
+        <p>
+            <input type="text" placeholder="Superhero" name="Notes">
+            <input type="radio" name="Item" value='GOODIE BAGS' hidden checked>
+        </p>
+        <p>
+            <input class="flex-item" type="submit" value="Order">
+        </p>
+    </div>
+    <br>
+</form>{%endblock%}
