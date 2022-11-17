@@ -1,0 +1,12 @@
+body {
+    background: radial-gradient( grey, black);
+    background-color: black;
+}
+
+h1 {
+    color: aqua;
+}
+
+.nav-link {
+    color: aquamarine;
+}
