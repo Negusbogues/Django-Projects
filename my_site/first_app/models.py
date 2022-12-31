@@ -14,6 +14,7 @@ class Consult(models.Model):
         return f"{self.First_Name} {self.Last_Name} has an order. Delivery Date: {self.Delivery_Date}."
 
 class AType(models.IntegerChoices):
+    ZERO = 0, '0'
     ONE = 1, '1'
     TWO = 2, '2'
     THREE = 3, '3'
@@ -76,7 +77,7 @@ class Checkout(models.Model):
 
 class Order(models.Model):
     Id_Number = models.AutoField(primary_key=True)
-    Quantity = models.IntegerField(choices=AType.choices)
+    Quantity = models.IntegerField(choices=AType.choices, default=0)
     Notes = models.CharField(max_length=150, null= True)
     Item = models.CharField(max_length=100)
     Price = models.DecimalField(decimal_places=2, max_digits=6)

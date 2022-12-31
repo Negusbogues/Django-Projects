@@ -35,16 +35,20 @@ def reviews_view(request):
         return render(request, 'first_app/reviews.html')
 
 def services_view(request):
-    if request.POST:
-        Quantity = request.POST['Quantity']
-        Notes = request.POST['Notes']
-        Item = request.POST['Item']
-        Price = request.POST['Price']
-        Total = float(Quantity)*float(Price)
-        models.Order.objects.create(Quantity=Quantity, Notes=Notes, Item=Item, Price=Price, Total=Total)
-        return redirect(reverse('first_app:thank_you'))
-    else:
+    try:
+        if request.POST:
+            Quantity = request.POST['Quantity']
+            Notes = request.POST['Notes']
+            Item = request.POST['Item']
+            Price = request.POST['Price']
+            Total = float(Quantity)*float(Price)
+            models.Order.objects.create(Quantity=Quantity, Notes=Notes, Item=Item, Price=Price, Total=Total)
+            return redirect(reverse('first_app:thank_you'))
+        else:
+            return render(request, 'first_app/services.html')
+    except(ValueError):
         return render(request, 'first_app/services.html')
+
 
 def thank_you_view(request):
     return render(request, 'first_app/thank_you.html')
@@ -91,7 +95,6 @@ def cart_view(request):
             return redirect(reverse('first_app:cart'))
         except: 
             try:
-                checkout = request.POST['checkout']
                 return redirect(reverse('first_app:checkout'))
             except:
                 print('pk not found!')

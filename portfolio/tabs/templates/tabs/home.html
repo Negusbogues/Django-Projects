@@ -1,7 +1,37 @@
-{%extends 'base.html' %} {%block content%}
-<h1>home</h1>
+{%extends 'base.html' %} {%block content%} {% load static %}
+<div>
+    <img src="{% static 'tabs/3.png' %}" alt="cake topper image" width="100%">
+</div>
 <div class="container">
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima aperiam explicabo corporis iste labore quia, ea odit animi, ipsum qui eaque harum in repellat porro. Recusandae dolor laudantium soluta!</p>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, corporis aspernatur? Modi similique unde natus ab aut quas, pariatur dolorem fugit quod suscipit quibusdam ipsum cum dignissimos in hic rem.</p>
+    <div class="card-h">
+        <div class="card-header">
+            <h3>Professional Summary</h3>
+        </div>
+        <p>Software Engineer dedicated to improving skills through hands-on learning and development work. Proficient in <span style="color: rgb(255, 255, 255);">Object-Oriented Programming (OOP)</span>. Adept at using <span style="color: rgb(255, 255, 255);">Python and Django</span>            framework to produce clean code. Well-organized and collaborative team player with strong communication and analytical abilities.</p>
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Langauges</h3>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima aperiam explicabo corporis iste labore quia, ea odit animi, ipsum qui eaque harum in repellat porro. Recusandae dolor laudantium soluta!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, corporis aspernatur? Modi similique unde natus ab aut quas, pariatur dolorem fugit quod suscipit quibusdam ipsum cum dignissimos in hic rem.</p>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Langauges</h3>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur minima aperiam explicabo corporis iste labore quia, ea odit animi, ipsum qui eaque harum in repellat porro. Recusandae dolor laudantium soluta!</p>
+        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Atque, corporis aspernatur? Modi similique unde natus ab aut quas, pariatur dolorem fugit quod suscipit quibusdam ipsum cum dignissimos in hic rem.</p>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Contact</h3>
+        </div>
+        <p>Email - Bogues.n@live.com</p>
+        <a href="https://www.linkedin.com/in/negus-bogues-ab8030244/">Linkedin</a>
+        <a href="https://github.com/Negusbogues">Github</a>
+    </div>
 </div>
 {%endblock%}
