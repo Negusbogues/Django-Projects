@@ -3,7 +3,7 @@ from django.http.response import HttpResponse
 from django.views.generic import TemplateView, FormView, CreateView
 from django.urls import reverse_lazy, reverse
 from . import models
-
+from scraper import gold_price
 
 # Create your views here.
 class HomeView(TemplateView):
@@ -13,35 +13,37 @@ def lbs2kgs(Weight):
     res = round(Weight*k,2)            
     return res
 def projects_view(request):
-    if request.POST:
-        try:
-            all = models.WeightConvert.objects.all().delete()
-            Weight = request.POST['Weight']
-            Unit = request.POST['Unit']
-            models.WeightConvert.objects.create(Weight=Weight, Unit=Unit)
-            weightinfoKG= models.WeightConvert.objects.filter(Unit= 'KG')
-            weightinfoLB= models.WeightConvert.objects.filter(Unit= 'LB')       
-            context = {
+    all = models.WeightConvert.objects.all().delete()
+    all1 = models.PasswordGen.objects.all().delete()
+    weightinfoKG= models.WeightConvert.objects.filter(Unit= 'KG')
+    weightinfoLB= models.WeightConvert.objects.filter(Unit= 'LB') 
+    Pass = models.PasswordGen.objects.all()
+    context = {
             "weightKG":weightinfoKG,
             "weightLB":weightinfoLB,
+            "goldprice": gold_price(),
+            "Pass":Pass,
             }
+    if request.POST:
+        try:
+            Weight = request.POST['Weight']
+            Unit = request.POST['Unit']
+            models.WeightConvert.objects.create(Weight=Weight, Unit=Unit)    
             return render(request, 'tabs/projects.html', context)
         except:
-            all1 = models.PasswordGen.objects.all().delete()
             Length = request.POST['Length']
             Special = request.POST['Special']
             models.PasswordGen.objects.create(Length=Length, Special=Special)
-            Pass = models.PasswordGen.objects.all()
-            context = {
-            "Pass":Pass,
-            }
             return render(request, 'tabs/projects.html', context)
     else:
-        return render(request, 'tabs/projects.html')
+        return render(request, 'tabs/projects.html', context)
     
 
 def contact_view(request):
-    return render(request, 'tabs/contact.html')
+    context = {
+        'goldprice': gold_price(),
+    }
+    return render(request, 'tabs/contact.html', context)
 def result_view(request):
     weightinfoKG= models.WeightConvert.objects.filter(Unit= 'KG')
     weightinfoLB= models.WeightConvert.objects.filter(Unit= 'LB')
