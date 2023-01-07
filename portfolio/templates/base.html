@@ -81,9 +81,10 @@
     
     .container {
         width: 100%;
+        height: fit-content;
         display: flex;
         flex-direction: row;
-        justify-content: stretch;
+        justify-content: space-evenly;
     }
     
     h1 {
@@ -101,22 +102,25 @@
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         border-radius: 10px 30px 10px 30px;
-        max-width: 100%;
-        padding: 15px;
-        margin: 15px;
-        width: 30%;
+        padding: 16px;
+        margin: 5px;
+        width: 33%;
+        height: 400px;
     }
     
     .card-h {
+        border-style: groove;
+        border: 1px;
         filter: brightness(70%);
         box-shadow: 0 5px 5px 0;
         background: inherit;
         -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
         border-radius: 10px 30px 10px 30px;
-        max-width: 100%;
-        padding: 15px;
-        margin: 15px;
+        width: 100%;
+        padding: 16px;
+        margin: 5px;
+        height: fit-content;
     }
     
     .card:hover {
@@ -149,6 +153,55 @@
     .card-header:hover {
         animation: glow2;
         animation-duration: 2s;
+    }
+    
+    #submit {
+        background-color: inherit;
+        border-radius: 10px 30px 10px 30px;
+        color: #00ffff;
+        border-color: aqua;
+        padding: 4px;
+        width: 140px;
+        font-size: large;
+        animation: grow;
+        animation-duration: 2s;
+        margin: 10px 10px 0px 10px;
+        padding: 10px 10px 10px 10px;
+    }
+    
+     ::placeholder {
+        color: aqua;
+    }
+    
+    input {
+        background-color: inherit;
+        border-radius: 10px 30px 10px 30px;
+        padding: 0px 0px 0px 15px;
+        color: aqua;
+        border-color: aqua;
+    }
+    
+    input:active {
+        background-color: inherit;
+    }
+    
+    label {
+        font-weight: bold;
+        color: aqua;
+    }
+    
+    textarea {
+        background-color: inherit;
+        border-radius: 10px 30px 10px 30px;
+        padding: 0px 0px 0px 15px;
+        margin: 0px 0px 0px 40px;
+        color: aqua;
+        border-color: aqua;
+    }
+    
+    input[type='radio'] {
+        accent-color: aqua;
+        background-color: inherit;
     }
 </style>
 

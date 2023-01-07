@@ -1,21 +1,9 @@
 {%extends 'base.html' %} {%block content%}
 <h1>Projects</h1>
 <style>
-    #submit {
-        background-color: inherit;
-        border-radius: 10px 30px 10px 30px;
-        color: #00ffff;
-        border-color: aqua;
-        padding: 4px;
-        width: 140px;
-        font-size: large;
-        animation: grow;
-        animation-duration: 2s
-    }
-    
     .card {
-        width: fit-content;
-        height: 230px;
+        height: 300px;
+        min-height: auto;
     }
     
     div {
@@ -23,43 +11,56 @@
     }
 </style>
 <div class="container">
+    <div class="card-h">
+        <div class="card-header">
+            <h3>Quiz Creator</h3>
+        </div>
+        <div>
+            <label for="Question1">Number of Questions: </label>
+            <input type="text" name="Question1" placeholder="Question 1" spellcheck="true" required>
+            <input type="text" name="Answer1" placeholder="Answer 1" spellcheck="true" required>
+        </div>
+    </div>
+</div>
+<div class="container">
     <div class="card">
         <div class="card-header">
-            <h3>Web Scraping</h3>
-            <h6>Current Gold Price</h6>
+            <h3>Current Gold Price</h3>
+            <h6>Web Scraping</h6>
         </div>
         <br> <span style="font-size: larger;font-weight: bold;">{{goldprice}}</span>
         <p>Source : <a href="https://www.monex.com/gold-prices/">Monex.com</a></p>
     </div>
-    <form method="post">
-        {%csrf_token%}
-        <div class="card">
-            <div class="card-header">
-                <h3>Password Generator</h3>
-            </div>
+
+    <div class="card">
+        <div class="card-header">
+            <h3>Password Generator</h3>
+        </div>
+        <form method="post">
+            {%csrf_token%}
             <div>
-                <label for="Length">How long would you like your password?</label>
-                <input type="number" name="Length" placeholder="0" style="width: 40px;">
+                <label for="Length">Password length?</label>
+                <input type="number" name="Length" placeholder="0" style="width: 80px;">
             </div>
             <div>
                 <label for="Special">Special Characters? </label>
                 <input type="radio" name="Special" value="True" required>Yes
-                <input type="radio" name="Special" value="False" required>NO
+                <input type="radio" name="Special" value="False" required>No
             </div>
             <input type="submit" value="Submit!" id='submit'>
-            <div>
-                <form action="get">
-                    <br> <span style="font-size: larger;font-weight: bold;">{%for info in Pass%}Generated Password </span>= {{info.make_password}}{%endfor%}
-                </form>
-            </div>
+        </form>
+        <div>
+            <form action="get">
+                <br> <span style="font-size: larger;font-weight: bold;">{%for info in Pass%}Generated Password = {{info.make_password}}</span>{%endfor%}
+            </form>
         </div>
-    </form>
-    <form method="post">
-        {%csrf_token%}
-        <div class="card">
-            <div class="card-header">
-                <h3>Weight converter</h3>
-            </div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Weight converter</h3>
+        </div>
+        <form method="post">
+            {%csrf_token%}
             <div>
                 <label for="Weight">Weight: </label>
                 <input type="number" name="Weight" placeholder="0" required>
@@ -70,13 +71,14 @@
                 <input type="radio" value="LB" name="Unit" required> Pounds
             </div>
             <input type="submit" value="Submit!" id='submit'>
-            <div>
-                <form action="get">
-                    <br> <span style="font-size: larger;font-weight: bold;">Results</span>: {%for info in weightKG%} {{info.Weight}} {{info.Unit}} = {{info.Kg2Lb}}LB {%endfor%} {%for info in weightLB%} {{info.Weight}} {{info.Unit}} = {{info.Lb2Kg}}KG
-                    {%endfor%}
-                </form>
-            </div>
+        </form>
+        <div>
+            <form action="get">
+                <br> <span style="font-size: larger;font-weight: bold;">Results : {%for info in weightKG%} {{info.Weight}} {{info.Unit}} = {{info.Kg2Lb}}LB {%endfor%} {%for info in weightLB%} {{info.Weight}} {{info.Unit}} = {{info.Lb2Kg}}KG </span>{%endfor%}
+            </form>
         </div>
+    </div>
     </form>
+</div>
 
-    {%endblock%}
+{%endblock%}

@@ -1,0 +1,6 @@
+Car|kim|100.0
+One|tom|100.0
+Numbers|no|100.0
+Math|tim|80.0
+Car|tim|50.0
+Car|james|0.0

@@ -1,63 +1,57 @@
-{%extends 'base.html' %} {%block content%}
+{%extends 'base.html' %} {%block content%} {% load static %}
 <h1>Contact</h1>
-<style>
-    .wrapper {
-        border: 1px solid aqua;
-        border-radius: 10px 30px 10px 30px;
-        background-color: inherit;
-        width: 700px;
-        height: 500px;
-        position: relative;
-        justify-content: space-between;
-        display: block;
-        margin: 15px;
-        padding: 15px;
-    }
-    
-    @keyframes gradient {
-        0% {
-            background-position: 0% 50%;
-        }
-        50% {
-            background-position: 100% 50%;
-        }
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-    
-    .wrapper>div {
-        height: 12%;
-        border-radius: 10px 30px 10px 30px;
-        position: absolute;
-        background: linear-gradient(-45deg, rgb(169, 251, 251), rgb(3, 217, 255), #111112, #080621);
-        background-size: auto;
-        animation: gradient 15s ease infinite;
-        display: inline-flex;
-        justify-content: center;
-    }
-    
-    .bar {
-        color: aqua;
-        height: 10%;
-    }
-</style>
 <div class="container">
-    <div class="card-h">
+    <div class="card">
         <div class="card-header">
-            <h3>Langauges</h3>
+            <h3>Email</h3>
+        </div>
+        <form method="post">
+            {%csrf_token%}
+            <div>
+                <p><label for="First_Name">First Name: </label>
+                    <input type="text" name="First_Name" placeholder="Jane" required></p>
+            </div>
+            <div>
+                <p><label for="Last_Name">Last Name: </label>
+                    <input type="text" name="Last_Name" placeholder="Doe"></p>
+            </div>
+            <div>
+                <p><label for="Email">Email: </label>
+                    <input type="email" name="Email" placeholder="email@email.com" required></p>
+            </div>
+            <div>
+                <p>
+                    <label for="Notes">Notes: </label>
+                    <input type="text" name="Notes" placeholder="Brief message" spellcheck="true" required>
+                </p>
+            </div>
+            <input type="submit" value="Submit" id="submit" style="justify-self: center;">
+        </form>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Information</h3>
         </div>
         <div>
-            {{goldprice}}
+            <p>Email - Bogues.n@live.com</p>
+            <div>
+                <p>
+                    <img src="{% static 'tabs/linkedin.png' %}" alt="logo" height="5%"><a href="https://www.linkedin.com/in/negus-bogues-ab8030244/">Linkedin</a>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="{% static 'tabs/Github.png' %}" alt="logo" height="5%"><a href="https://github.com/Negusbogues">Github</a>
+                </p>
+            </div>
         </div>
-        <div class="wrapper">
-            <div class='bar' style="width: 75%;">Html</div>
-            <div class='bar' style="margin-top: 10%;width: 70%;">Css</div>
-            <div class='bar' style="margin-top: 20%;width: 27%;">JavaScript</div>
-            <div class='bar' style="margin-top: 30%;width: 77%;">Python</div>
-            <div class='bar' style="margin-top: 40%;width: 65%;">Django</div>
-            <div class='bar' style="margin-top: 50%;width: 43%;">Java</div>
-            <div class='bar' style="margin-top: 60%;margin-bottom: 5%; width: 70%;">SQL</div>
+    </div>
+    <div class="card">
+        <div class="card-header">
+            <h3>Out Going Message</h3>
+        </div>
+        <div>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Id excepturi qui veniam facere dolor cumque corrupti esse repudiandae rem eveniet, reprehenderit modi necessitatibus quae in optio! Qui, itaque atque. Dolorem.</p>
         </div>
     </div>
 </div>

@@ -1,0 +1,4 @@
+Car|How many wheels on a typical car,How many doors are on a coup|4,2
+Math|2 + 2 = ,2 - 2 = ,2 * 2 = ,2 / 2 = ,2 * (-2) = |4,0,4,1,-4
+Colors|What color does red and blue make |purple
+Numbers|After 3 is ,After 8 is ,12 - 9 = |4,9,3
