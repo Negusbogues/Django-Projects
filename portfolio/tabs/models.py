@@ -3,7 +3,11 @@ from string import ascii_letters
 from django.db import models
 
 # Create your models here.
-
+class Contact(models.Model):
+    Subject = models.CharField(max_length=250)
+    Message = models.CharField(max_length=250)
+    From = models.EmailField()
+    To = models.EmailField()
 class WeightConvert(models.Model):
     CHOICES = (
         ('KG', 'KG'),

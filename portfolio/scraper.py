@@ -14,5 +14,3 @@ def gold_price():
     currentDate = datetime.date.today()
     currentMonthName = currentDate.strftime("%B")
     return (f"{currentMonthName} {currentDate.day}, {currentDate.year} : ") + gold_price
-
-print(gold_price())

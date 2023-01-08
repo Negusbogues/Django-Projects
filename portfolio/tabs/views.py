@@ -37,13 +37,19 @@ def projects_view(request):
             return render(request, 'tabs/projects.html', context)
     else:
         return render(request, 'tabs/projects.html', context)
-    
-
 def contact_view(request):
-    context = {
-        'goldprice': gold_price(),
-    }
-    return render(request, 'tabs/contact.html', context)
+    try:
+        if request.POST:
+            Subject = request.POST['Subject']
+            Message = request.POST['Message']
+            From = "bogues.ne@gmail.com"
+            To = request.POST['To']
+            models.Contact.objects.create(Subject=Subject, Message=Message, From=From, To=To)
+            return redirect(reverse('tabs:thank_you'))
+        else:
+            return render(request, 'tabs/contact.html')
+    except(ValueError):
+        return render(request, 'tabs/contact.html')
 def result_view(request):
     weightinfoKG= models.WeightConvert.objects.filter(Unit= 'KG')
     weightinfoLB= models.WeightConvert.objects.filter(Unit= 'LB')
@@ -51,4 +57,6 @@ def result_view(request):
         "weightKG":weightinfoKG,
         "weightLB":weightinfoLB,
     }
-    return render(request, 'tabs/result.html', context)    
+    return render(request, 'tabs/result.html', context)  
+def thank_you_view(request):
+    return render(request, 'tabs/thank_you.html')  
