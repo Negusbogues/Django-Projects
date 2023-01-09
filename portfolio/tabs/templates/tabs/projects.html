@@ -2,34 +2,83 @@
 <h1>Projects</h1>
 <style>
     .card {
-        height: 300px;
+        height: 320px;
         min-height: auto;
     }
     
     div {
         color: aqua;
     }
+    
+    #Feet,
+    #Inches {
+        width: 25%;
+    }
+    
+    #Weight {
+        width: 30%;
+    }
 </style>
-<div class="container">
-    <div class="card-h">
-        <div class="card-header">
-            <h3>Guessing Game</h3>
-        </div>
-        <div>
-            {{Game}}
-        </div>
-    </div>
-</div>
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h3>Current Gold Price</h3>
-            <h6>Web Scraping</h6>
+            <h3>BMI Calculator</h3>
         </div>
-        <br> <span style="font-size: larger;font-weight: bold;">{{goldprice}}</span>
-        <p>Source : <a href="https://www.monex.com/gold-prices/">Monex.com</a></p>
+        <form method="post">
+            {%csrf_token%}
+            <div>
+                <label for="Sex">Male or Female: </label>
+                <input type="radio" name="Sex" value="Male" required>Male
+                <input type="radio" name="Sex" value="Female" required>Female
+            </div>
+            <div>
+                <label for="Weight">Weight:   </label>
+                <input type="number" name="Weight" id="Weight" required>
+            </div>
+            <div>
+                <label for="Unit">Unit:   </label>
+                <input type="radio" name="Unit" value='KG' required>.Kg
+                <input type="radio" name="Unit" value='LB' required>.Lb
+            </div>
+            <div>
+                <div><label for="">Height - </label>
+                    <label for="Feet" style="font-size: small;">Ft: </label>
+                    <input type="number" name="Feet" id='Feet' required>
+                    <label for="Inches" style="font-size: small;">In: </label>
+                    <input type="number" name="Inches" id="Inches" required>
+                </div>
+            </div>
+            <input type="submit" value="Submit!" name="BMI" id='submit'>
+        </form>
+        <div>
+            <form action="get">
+                <br> <span style="font-size: larger;font-weight: bold;"> BMI = {%for info in BMI%} {{info.bmicalc}}</span>{%endfor%}
+            </form>
+        </div>
     </div>
-
+    <div class="card">
+        <div class="card-header">
+            <h3>Weight converter</h3>
+        </div>
+        <form method="post">
+            {%csrf_token%}
+            <div>
+                <label for="Weight">Weight: </label>
+                <input type="number" name="Weight" placeholder="0">
+            </div>
+            <div>
+                <label for="Unit">Unit: </label>
+                <input type="radio" value="KG" name="Unit" required> Kilograms
+                <input type="radio" value="LB" name="Unit" required> Pounds
+            </div>
+            <input type="submit" value="Submit!" name="WeightCon" id='submit'>
+        </form>
+        <div>
+            <form action="get">
+                <br> <span style="font-size: larger;font-weight: bold;">Results : {%for info in weightKG%} {{info.Weight}} {{info.Unit}} = {{info.Kg2Lb}}LB {%endfor%} {%for info in weightLB%} {{info.Weight}} {{info.Unit}} = {{info.Lb2Kg}}KG </span>{%endfor%}
+            </form>
+        </div>
+    </div>
     <div class="card">
         <div class="card-header">
             <h3>Password Generator</h3>
@@ -45,38 +94,26 @@
                 <input type="radio" name="Special" value="True" required>Yes
                 <input type="radio" name="Special" value="False" required>No
             </div>
-            <input type="submit" value="Submit!" id='submit'>
+            <input type="submit" value="Submit!" name="Password" id='submit'>
         </form>
         <div>
             <form action="get">
-                <br> <span style="font-size: larger;font-weight: bold;">{%for info in Pass%}Generated Password = {{info.make_password}}</span>{%endfor%}
+                <br> <span style="font-size: larger;font-weight: bold;">Generated Password = {%for info in Pass%} {{info.make_password}}</span>{%endfor%}
             </form>
         </div>
     </div>
-    <div class="card">
-        <div class="card-header">
-            <h3>Weight converter</h3>
-        </div>
-        <form method="post">
-            {%csrf_token%}
-            <div>
-                <label for="Weight">Weight: </label>
-                <input type="number" name="Weight" placeholder="0" required>
-            </div>
-            <div>
-                <label for="Unit">Unit: </label>
-                <input type="radio" value="KG" name="Unit" required> Kilograms
-                <input type="radio" value="LB" name="Unit" required> Pounds
-            </div>
-            <input type="submit" value="Submit!" id='submit'>
-        </form>
-        <div>
-            <form action="get">
-                <br> <span style="font-size: larger;font-weight: bold;">Results : {%for info in weightKG%} {{info.Weight}} {{info.Unit}} = {{info.Kg2Lb}}LB {%endfor%} {%for info in weightLB%} {{info.Weight}} {{info.Unit}} = {{info.Lb2Kg}}KG </span>{%endfor%}
-            </form>
-        </div>
-    </div>
+
     </form>
+</div>
+<div class="container">
+    <div class="card-h">
+        <div class="card-header">
+            <h3>Current Gold Price</h3>
+            <h6>Web Scraping</h6>
+        </div>
+        <br> <span style="font-size: larger;font-weight: bold;">{{goldprice}}</span>
+        <p>Source : <a href="https://www.monex.com/gold-prices/">Monex.com</a></p>
+    </div>
 </div>
 
 {%endblock%}

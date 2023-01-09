@@ -3,6 +3,77 @@ from string import ascii_letters
 from django.db import models
 
 # Create your models here.
+class BMI(models.Model):
+    CHOICES = (
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+    )
+    CHOICES1 = (
+        ('KG', 'KG'),
+        ('LB', 'LB'),
+    )
+    Feet = models.IntegerField()
+    Inches = models.IntegerField()
+    Weight = models.IntegerField()
+    Sex = models.CharField(max_length=100, choices=CHOICES)
+    Unit = models.CharField(max_length=100, choices=CHOICES1)
+    @property
+    def bmicalc(self):
+        
+        if self.Sex == 'Male':
+            if self.Unit == 'KG':
+                height =(((self.Feet*12)+self.Inches)*2.54)/100
+                bmi = (self.Weight)/((height)*(height))
+                bmi = round(bmi,2)
+                if bmi <= 18.5:
+                    return str(bmi)+' - underweight'
+                elif 25 > bmi > 18.5:
+                    return str(bmi)+' - normal weight'
+                elif bmi > 30:
+                    return str(bmi)+ ' - obese'
+                else:
+                    return str(bmi)+' - overweight'
+            else:
+                height =(((self.Feet*12)+self.Inches)*2.54)/100
+                l = 0.45359237
+                weight = round(self.Weight*l,2)
+                bmi = (weight)/((height)*(height))
+                bmi = round(bmi,2)
+                if bmi <= 18.5:
+                    return str(bmi)+' - underweight'
+                elif 25 > bmi > 18.5:
+                    return str(bmi)+' - normal weight'
+                elif bmi > 30:
+                    return str(bmi)+ ' - obese'
+                else:
+                    return str(bmi)+' - overweight'
+        else:
+            if self.Unit == 'KG':
+                height =(((self.Feet*12)+self.Inches)*2.54)/100
+                bmi = (self.Weight)/((height)*(height))
+                bmi = round(bmi,2)
+                if bmi <= 18.5:
+                    return str(bmi)+' - underweight'
+                elif 25 > bmi > 18.5:
+                    return str(bmi)+' - normal weight'
+                elif bmi > 30:
+                    return str(bmi)+ ' - obese'
+                else:
+                    return str(bmi)+' - overweight'
+            else:
+                height =(((self.Feet*12)+self.Inches)*2.54)/100
+                l = 0.45359237
+                weight = round(self.Weight*l,2)
+                bmi = (weight)/((height)*(height))
+                bmi = round(bmi,2)
+                if bmi <= 18.5:
+                    return str(bmi)+' - underweight'
+                elif 25 > bmi > 18.5:
+                    return str(bmi)+' - normal weight'
+                elif bmi > 30:
+                    return str(bmi)+ ' - obese'
+                else:
+                    return str(bmi)+' - overweight'
 class Contact(models.Model):
     Subject = models.CharField(max_length=250)
     Message = models.CharField(max_length=250)
