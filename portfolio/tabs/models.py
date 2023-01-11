@@ -26,13 +26,13 @@ class BMI(models.Model):
                 bmi = (self.Weight)/((height)*(height))
                 bmi = round(bmi,2)
                 if bmi <= 18.5:
-                    return str(bmi)+' - underweight'
+                    return str(bmi)+' - Underweight'
                 elif 25 > bmi > 18.5:
-                    return str(bmi)+' - normal weight'
+                    return str(bmi)+' - Normal Weight'
                 elif bmi > 30:
-                    return str(bmi)+ ' - obese'
+                    return str(bmi)+ ' - Obese'
                 else:
-                    return str(bmi)+' - overweight'
+                    return str(bmi)+' - Overweight'
             else:
                 height =(((self.Feet*12)+self.Inches)*2.54)/100
                 l = 0.45359237
@@ -40,26 +40,26 @@ class BMI(models.Model):
                 bmi = (weight)/((height)*(height))
                 bmi = round(bmi,2)
                 if bmi <= 18.5:
-                    return str(bmi)+' - underweight'
+                    return str(bmi)+' - Underweight'
                 elif 25 > bmi > 18.5:
-                    return str(bmi)+' - normal weight'
+                    return str(bmi)+' - Normal Weight'
                 elif bmi > 30:
-                    return str(bmi)+ ' - obese'
+                    return str(bmi)+ ' - Obese'
                 else:
-                    return str(bmi)+' - overweight'
+                    return str(bmi)+' - Overweight'
         else:
             if self.Unit == 'KG':
                 height =(((self.Feet*12)+self.Inches)*2.54)/100
                 bmi = (self.Weight)/((height)*(height))
                 bmi = round(bmi,2)
                 if bmi <= 18.5:
-                    return str(bmi)+' - underweight'
+                    return str(bmi)+' - Underweight'
                 elif 25 > bmi > 18.5:
-                    return str(bmi)+' - normal weight'
+                    return str(bmi)+' - Normal Weight'
                 elif bmi > 30:
-                    return str(bmi)+ ' - obese'
+                    return str(bmi)+ ' - Obese'
                 else:
-                    return str(bmi)+' - overweight'
+                    return str(bmi)+' - Overweight'
             else:
                 height =(((self.Feet*12)+self.Inches)*2.54)/100
                 l = 0.45359237
@@ -67,13 +67,13 @@ class BMI(models.Model):
                 bmi = (weight)/((height)*(height))
                 bmi = round(bmi,2)
                 if bmi <= 18.5:
-                    return str(bmi)+' - underweight'
+                    return str(bmi)+' - Underweight'
                 elif 25 > bmi > 18.5:
-                    return str(bmi)+' - normal weight'
+                    return str(bmi)+' - Normal Weight'
                 elif bmi > 30:
-                    return str(bmi)+ ' - obese'
+                    return str(bmi)+ ' - Obese'
                 else:
-                    return str(bmi)+' - overweight'
+                    return str(bmi)+' - Overweight'
 class Contact(models.Model):
     Subject = models.CharField(max_length=250)
     Message = models.CharField(max_length=250)

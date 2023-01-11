@@ -71,13 +71,7 @@ def contact_view(request):
             return render(request, 'tabs/contact.html')
     except(ValueError):
         return render(request, 'tabs/contact.html')
-def result_view(request):
-    weightinfoKG= models.WeightConvert.objects.filter(Unit= 'KG')
-    weightinfoLB= models.WeightConvert.objects.filter(Unit= 'LB')
-    context = {
-        "weightKG":weightinfoKG,
-        "weightLB":weightinfoLB,
-    }
-    return render(request, 'tabs/result.html', context)  
+def resume_view(request):
+    return render(request, 'tabs/resume.html')  
 def thank_you_view(request):
     return render(request, 'tabs/thank_you.html')  
