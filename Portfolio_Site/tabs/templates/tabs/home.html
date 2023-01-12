@@ -1,0 +1,124 @@
+{%extends 'base.html' %} {%block content%} {% load static %}
+<style>
+    .wrapper {
+        border: 3px solid aqua;
+        border-radius: 10px 30px 10px 30px;
+        background-color: inherit;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        justify-content: center;
+        display: block;
+        margin: 15px 15px 15px 15px;
+        padding: 15px 15px 15px 15px;
+        align-self: center;
+    }
+    
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+    .wrapper>div {
+        height: 10%;
+        border-radius: 10px 30px 10px 30px;
+        position: absolute;
+        background: linear-gradient(-45deg, rgb(3, 217, 255), #111112, #080621);
+        background-size: auto;
+        animation: gradient 15s ease infinite;
+        display: inline-flex;
+        justify-content: center;
+        align-self: center;
+    }
+    
+    .bar {
+        color: rgb(250, 252, 252);
+    }
+</style>
+<div class="container">
+    <div class="card-h1" style="padding: 0%;">
+        <header><img src="{% static 'tabs/banner.png' %}" alt="cake topper image" height="200px" width="100%"></header>
+    </div>
+</div>
+<div class="container">
+    <div class="card-h" style="font-size: larger;">
+        <div class="card-header">
+            <h3>Professional Summary</h3>
+        </div>
+        <p>Dedicated <span style="color: rgb(255, 255, 255);">Python Django developer</span>, with experience exploiting model-template-view architectural pattern of <span style="color: rgb(255, 255, 255);">Django</span> framework to shorten development
+            times and reduce design costs. Specializes in creating accessible, data-driven web assets. Keen to apply expansive development knowledge to deliver fast, efficient web projects.</p>
+    </div>
+    <div class="card-h" style="width: 70%;">
+        <div class="card-header">
+            <h3>Certifications</h3>
+            <ul>
+                <li>Django 4 and Python Full-Stack. Udemy Certificate.</li>
+                <li>Google Data Analytics Certificate.</li>
+                <li>Associates of science. Broward college.</li>
+            </ul>
+            <img src="{% static 'tabs/python.png' %}" alt="logo" id="img1"><img src="{% static 'tabs/django.png' %}" alt="logo" id="img2"><img src="{% static 'tabs/mysql.png' %}" alt="logo" id="img3">
+        </div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="card">
+        <div class="card-header">
+            <h3>Languages & Skills</h3>
+        </div>
+        <div class="wrapper">
+            <div class='bar' style="width: 75%;">Html</div>
+            <div class='bar' style="margin-top: 10%;width: 70%;">Css</div>
+            <div class='bar' style="margin-top: 20%;width: 27%;">JavaScript</div>
+            <div class='bar' style="margin-top: 30%;width: 77%;">Python</div>
+            <div class='bar' style="margin-top: 40%;width: 65%;">Django</div>
+            <div class='bar' style="margin-top: 50%;width: 43%;">Java</div>
+            <div class='bar' style="margin-top: 60%; width: 70%;">SQL</div>
+            <div class='bar' style="margin-top: 70%;margin-bottom: 5%; width: 33%;">AWS</div>
+        </div>
+    </div>
+    <div class="card" style="font-size: larger;">
+        <div class=" card-header ">
+            <h3>Projects</h3>
+        </div>
+        <div>
+            <p>Using <span style="color: rgb(255, 255, 255); ">Python and Java</span> i've built a variety of projects. Ranging from password generation and storage, to quiz apps and websites. For a sample of these project go to the <a href="http://127.0.0.1:8000/projects "
+                    style="color: azure; ">Projects</a> tab, or follow the link to my Github page in the contact section.</p>
+        </div>
+    </div>
+    <div class="card ">
+        <div class="card-header ">
+            <h3>Contact</h3>
+        </div>
+        <div>
+            <div>
+                <p>
+                    <img src="{% static 'tabs/message.svg' %} " alt="logo " height="3% "> Email - Bogues.n@live.com
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="{% static 'tabs/resume.svg' %} " alt="logo " height="5% "><a href="http://127.0.0.1:8000/resume ">Resume</a>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="{% static 'tabs/linkedin.png' %} " alt="logo " height="4% " style="margin-right: 5px; "> <a href="https://www.linkedin.com/in/negus-bogues-ab8030244/ ">Linkedin</a>
+                </p>
+            </div>
+            <div>
+                <p>
+                    <img src="{% static 'tabs/Github.png' %} " alt="logo " height="4% " style="margin-right: 5px; "> <a href="https://github.com/Negusbogues ">Github</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock%}
