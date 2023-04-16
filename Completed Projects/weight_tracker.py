@@ -19,9 +19,9 @@ while True:
                 print(empty_user)
                 count = 3
                 while True:
-                    selection = input('Which user\'s data would yu like to see? ').capitalize()
+                    selection = input('Which user\'s data would you like to see? ').capitalize()
                     if len(selection) < 3:
-                        print('Username must be longer than 3 characters long.')
+                        print('Username must be longer than 2 characters long.')
                         continue
                     elif selection not in empty_user:
                         print('User not found.')
